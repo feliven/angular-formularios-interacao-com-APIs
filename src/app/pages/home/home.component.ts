@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { PromocaoService } from "../../core/services/promocao.service";
 
 @Component({
   selector: "app-home",
@@ -6,4 +7,12 @@ import { Component } from "@angular/core";
   styleUrls: ["./home.component.scss"],
   standalone: false,
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  constructor(private service: PromocaoService) {}
+
+  ngOnInit(): void {
+    this.service.getPromocoes().subscribe((promocao) => {
+      console.log(promocao);
+    });
+  }
+}
