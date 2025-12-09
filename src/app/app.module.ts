@@ -26,7 +26,13 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { ModalComponent } from "./shared/modal/modal.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { BotaoControleComponent } from "./shared/botao-controle/botao-controle.component";
+
 import { provideHttpClient } from "@angular/common/http";
+import { LOCALE_ID } from "@angular/core";
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -59,7 +65,7 @@ import { provideHttpClient } from "@angular/common/http";
     MatNativeDateModule,
     MatDialogModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

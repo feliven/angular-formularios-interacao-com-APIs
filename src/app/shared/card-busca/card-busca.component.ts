@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Promocao } from "../../core/types/types";
 
 @Component({
   selector: "app-card-busca",
@@ -6,4 +7,6 @@ import { Component } from "@angular/core";
   styleUrls: ["./card-busca.component.scss"],
   standalone: false,
 })
-export class CardBuscaComponent {}
+export class CardBuscaComponent {
+  @Input() promocao!: Promocao;
+}
