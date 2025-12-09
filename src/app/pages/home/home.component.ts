@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
   constructor(private service: PromocaoService) {}
 
   ngOnInit(): void {
-    this.service.getPromocoes().subscribe((promocao) => {
-      this.listaPromocoes.push(...promocao);
+    this.service.getPromocoes().subscribe((resposta) => {
+      this.listaPromocoes = resposta;
       console.log(this.listaPromocoes);
     });
   }
