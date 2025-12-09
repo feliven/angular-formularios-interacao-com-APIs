@@ -31,6 +31,7 @@ import { provideHttpClient } from "@angular/common/http";
 import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
+import { ReactiveFormsModule } from "@angular/forms";
 
 registerLocaleData(localePt);
 
@@ -64,6 +65,7 @@ registerLocaleData(localePt);
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent],
