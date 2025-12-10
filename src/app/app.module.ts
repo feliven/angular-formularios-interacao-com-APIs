@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { DropdownUfComponent } from "./shared/form-busca/dropdown-uf/dropdown-uf.component";
 import { DepoimentosComponent } from "./pages/home/depoimentos/depoimentos.component";
+import { SeletorPassageiroComponent } from "./shared/seletor-passageiro/seletor-passageiro.component";
 
 registerLocaleData(localePt);
 
@@ -51,7 +52,7 @@ registerLocaleData(localePt);
     CardDepoimentoComponent,
     FormBuscaComponent,
     ModalComponent,
-    BotaoControleComponent,
+
     DepoimentosComponent,
   ],
   imports: [
@@ -72,6 +73,8 @@ registerLocaleData(localePt);
     ReactiveFormsModule,
     MatAutocompleteModule,
     DropdownUfComponent,
+    BotaoControleComponent,
+    SeletorPassageiroComponent,
   ],
   providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent],
