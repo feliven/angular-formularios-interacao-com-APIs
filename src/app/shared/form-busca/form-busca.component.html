@@ -7,7 +7,7 @@
         <mat-button-toggle [value]="true">SOMENTE IDA</mat-button-toggle>
       </mat-button-toggle-group>
       <mat-chip (click)="formBuscaService.openDialog()">
-        <div class="inner"><mat-icon>check</mat-icon> 1 adulto</div>
+        <div class="inner"><mat-icon>check</mat-icon>{{ formBuscaService.getDescricaoPassageiros() }}</div>
       </mat-chip>
       <mat-chip (click)="formBuscaService.openDialog()">
         <div class="inner"><mat-icon>check</mat-icon> Econômica</div>
