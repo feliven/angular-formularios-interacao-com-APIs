@@ -34,6 +34,7 @@ import localePt from "@angular/common/locales/pt";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { DropdownUfComponent } from "./shared/form-busca/dropdown-uf/dropdown-uf.component";
+import { DepoimentosComponent } from "./pages/home/depoimentos/depoimentos.component";
 
 registerLocaleData(localePt);
 
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     FormBuscaComponent,
     ModalComponent,
     BotaoControleComponent,
+    DepoimentosComponent,
   ],
   imports: [
     BrowserModule,
