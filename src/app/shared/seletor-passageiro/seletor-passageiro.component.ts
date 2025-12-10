@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { BotaoControleComponent } from "../botao-controle/botao-controle.component";
 
 @Component({
@@ -7,4 +7,8 @@ import { BotaoControleComponent } from "../botao-controle/botao-controle.compone
   templateUrl: "./seletor-passageiro.component.html",
   styleUrl: "./seletor-passageiro.component.scss",
 })
-export class SeletorPassageiroComponent {}
+export class SeletorPassageiroComponent {
+  @Input() titulo!: string;
+  @Input() subtitulo!: string;
+  @Input() quantidade!: number;
+}
