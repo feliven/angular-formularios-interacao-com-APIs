@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { FormBuscaService } from "../../core/services/form-busca.service";
 
 @Component({
   selector: "app-modal",
@@ -6,4 +7,6 @@ import { Component } from "@angular/core";
   styleUrls: ["./modal.component.scss"],
   standalone: false,
 })
-export class ModalComponent {}
+export class ModalComponent {
+  constructor(public formBuscaService: FormBuscaService) {}
+}

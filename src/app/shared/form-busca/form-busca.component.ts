@@ -12,9 +12,9 @@ import { FormBuscaService } from "../../core/services/form-busca.service";
 export class FormBuscaComponent {
   constructor(public dialog: MatDialog, public formBuscaService: FormBuscaService) {}
 
-  openDialog() {
-    this.dialog.open(ModalComponent, {
-      width: "50%",
-    });
-  }
+  // openDialog() {
+  //   this.dialog.open(ModalComponent, {
+  //     width: "50%",
+  //   });
+  // }
 }

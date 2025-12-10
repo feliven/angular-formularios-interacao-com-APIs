@@ -32,9 +32,22 @@
     </div>
     <div class="selecao-categoria">
       <p><strong>Categoria</strong></p>
+
       <mat-chip-listbox aria-label="Seleção de passagens">
-        <mat-chip-option selected>1 adulto</mat-chip-option>
-        <mat-chip-option>Econômica</mat-chip-option>
+        <mat-chip-option
+          value="Econômica"
+          [selected]="formBuscaService.formBusca.get('classe')?.value === 'Econômica'"
+          (selectionChange)="formBuscaService.alterarClasse($event, 'Econômica')"
+        >
+          Econômica
+        </mat-chip-option>
+
+        <mat-chip-option
+          value="Executiva"
+          [selected]="formBuscaService.formBusca.get('classe')?.value === 'Executiva'"
+          (selectionChange)="formBuscaService.alterarClasse($event, 'Executiva')"
+          >Executiva</mat-chip-option
+        >
       </mat-chip-listbox>
     </div>
   </div>
