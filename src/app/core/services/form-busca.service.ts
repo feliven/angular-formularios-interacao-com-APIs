@@ -16,85 +16,32 @@ export class FormBuscaService {
       origem: new FormControl(null),
       destino: new FormControl(null),
       classe: new FormControl("Econômica"),
-      adultos: new FormControl(0),
+      adultos: new FormControl(5),
       criancas: new FormControl(3),
       bebes: new FormControl(4),
     });
   }
 
   getDescricaoPassageiros(): string {
-    let descricao!: string;
+    const numeroAdultos = this.formBusca.get("adultos")?.value || 0;
+    const numeroCriancas = this.formBusca.get("criancas")?.value || 0;
+    const numeroBebes = this.formBusca.get("bebes")?.value || 0;
 
-    let descricaoAdultos!: string;
-    let descricaoCriancas!: string;
-    let descricaoBebes!: string;
+    const descricao: string[] = [];
 
-    const numeroAdultos = this.formBusca.get("adultos")?.value;
-    const numeroCriancas = this.formBusca.get("criancas")?.value;
-    const numeroBebes = this.formBusca.get("bebes")?.value;
-
-    if (numeroAdultos && numeroAdultos > 0) {
-      if (numeroAdultos > 1) {
-        descricaoAdultos = numeroAdultos + " adultos";
-      } else {
-        descricaoAdultos = numeroAdultos + " adulto";
-      }
+    if (numeroAdultos > 0) {
+      descricao.push(`${numeroAdultos} ${numeroAdultos > 1 ? "adultos" : "adulto"}`);
     }
 
-    if (numeroCriancas && numeroCriancas > 0) {
-      if (numeroCriancas > 1) {
-        descricaoCriancas = numeroCriancas + " crianças";
-      } else {
-        descricaoCriancas = numeroCriancas + " criança";
-      }
+    if (numeroCriancas > 0) {
+      descricao.push(`${numeroCriancas} ${numeroCriancas > 1 ? "crianças" : "criança"}`);
     }
 
-    if (numeroBebes && numeroBebes > 0) {
-      if (numeroBebes > 1) {
-        descricaoBebes = numeroBebes + " bebês";
-      } else {
-        descricaoBebes = numeroBebes + " bebê";
-      }
+    if (numeroBebes > 0) {
+      descricao.push(`${numeroBebes} ${numeroBebes > 1 ? "bebês" : "bebê"}`);
     }
 
-    const colocarVirgula = ", ";
-
-    if (descricaoAdultos && descricaoCriancas && descricaoBebes) {
-      descricao = descricaoAdultos + colocarVirgula + descricaoCriancas + colocarVirgula + descricaoBebes;
-      return descricao;
-    }
-
-    if (descricaoAdultos && !descricaoCriancas && !descricaoBebes) {
-      descricao = descricaoAdultos;
-      return descricao;
-    }
-
-    if (descricaoAdultos && descricaoCriancas && !descricaoBebes) {
-      descricao = descricaoAdultos + colocarVirgula + descricaoCriancas;
-      return descricao;
-    }
-
-    if (descricaoAdultos && !descricaoCriancas && descricaoBebes) {
-      descricao = descricaoAdultos + colocarVirgula + descricaoBebes;
-      return descricao;
-    }
-
-    if (!descricaoAdultos && descricaoCriancas && !descricaoBebes) {
-      descricao = descricaoCriancas;
-      return descricao;
-    }
-
-    if (!descricaoAdultos && !descricaoCriancas && descricaoBebes) {
-      descricao = descricaoBebes;
-      return descricao;
-    }
-
-    if (!descricaoAdultos && descricaoCriancas && descricaoBebes) {
-      descricao = descricaoCriancas + colocarVirgula + descricaoBebes;
-      return descricao;
-    }
-
-    return "1 adulto";
+    return descricao.length > 0 ? descricao.join(", ") : "1 adulto";
   }
 
   obterControle(nome: string): FormControl {
