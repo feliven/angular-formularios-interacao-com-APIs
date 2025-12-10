@@ -32,6 +32,8 @@ import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { DropdownUfComponent } from "./shared/form-busca/dropdown-uf/dropdown-uf.component";
 
 registerLocaleData(localePt);
 
@@ -66,6 +68,8 @@ registerLocaleData(localePt);
     MatNativeDateModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    DropdownUfComponent,
   ],
   providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent],
